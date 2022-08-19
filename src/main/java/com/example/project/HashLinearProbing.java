@@ -24,7 +24,6 @@ public class HashLinearProbing {
     }
 
     public void insertHash(Persona key) {
-        Persona wrappedInt = key;
         
         int hash = hashing(key.DNI);
 
@@ -35,7 +34,7 @@ public class HashLinearProbing {
 
         for (int i = 0; i < hsize; i++) {
             if (buckets[hash] == null || buckets[hash].DNI ==(AVAILABLE)) {
-                buckets[hash] = wrappedInt;
+                buckets[hash] = key;
                 size++;
                 return;
             }
@@ -50,8 +49,6 @@ public class HashLinearProbing {
 
     public void deleteHash(String key) {
     	
-        String wrappedInt = key;
-        
         int hash = hashing(key);
 
         if (isEmpty()) {
