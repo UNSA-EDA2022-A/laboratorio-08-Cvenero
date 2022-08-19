@@ -106,7 +106,7 @@ public class HashLinearProbing {
                 hash = 0;
             }
         }
-        return "Clave " + key + " no encontrada!";
+        return null;
     }    
    
     public boolean isFull() {        
