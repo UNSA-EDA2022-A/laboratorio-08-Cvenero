@@ -1,7 +1,7 @@
 package com.example.project;
 
 import java.util.Random;
-
+import java.nio.charset.StandardCharsets;
 public class HashLinearProbing {
     private int hsize; // tamano de la tabla hash
     private Persona[] buckets; // array que representa la tabla hash
@@ -16,7 +16,22 @@ public class HashLinearProbing {
     }
 
     public int hashing(String key) {
-        int hash = Integer.parseInt(key) % hsize;
+        /*int hash = Integer.parseInt(key) % hsize;
+        if (hash < 0) {
+            hash += hsize;
+        }
+        return hash;
+        */
+        int e = 0 ;
+        
+        byte[] bytes = key.getBytes(StandardCharsets.US_ASCII);
+        
+        for(int i=0; i<key.length(); i++) {
+        	e = e + bytes[i];
+        }
+        
+        int hash = e % hsize;
+        
         if (hash < 0) {
             hash += hsize;
         }
